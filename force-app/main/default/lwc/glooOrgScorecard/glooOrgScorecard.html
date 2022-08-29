@@ -1,0 +1,315 @@
+<template>
+    <lightning-layout title="MX Health Scorecard">
+        <lightning-record-view-form object-api-name={objectApiName} record-id={recordId}>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                    <div class="slds-text-heading_large">CSM Sentiment</div>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large slds-border_bottom">
+                    <lightning-card>
+                    <p class="slds-text-body_regular"><strong>CSM Sentiment Score:</strong> Score options: 1-10
+                        CSM manually selects a sentiment score following an interaction with a church / network.</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large slds-border_bottom">
+                    <lightning-card>
+                        <lightning-output-field field-name={csmSentiment}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                    <div class="slds-text-heading_large">Product Onboarding & Time to Value</div>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>First Account Login Score:</strong> A user logs into an Organization Account for the first time.
+                            (MOST of the time this will be the SAME as the account creation date)</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={firstLogin}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Claimed Phone Number Score:</strong> Click the button within product to claim a phone number for
+                            their organization</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={claimedPhone}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Community Member Score:</strong> A user in this organization has joined the Engaged Church Community
+                            in Facebook</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={communityMember}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>First Connection Received Score:</strong> Matched with their first Connection in the product</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={firstConnection}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>First Connection Response Score:</strong> Has either manually updated the status of Connection to
+                            "In Contact" or Connection has been automatically updated to "In Contact" by sending a message</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={firstResponse}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Integrate CHMS Score:</strong> Integration with CCB, PCO, OR Rock is active OR performed a CSV
+                            upload</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={chms}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>First Broadcast Score:</strong> Broadcast is sent to > 20 ppl</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <lightning-output-field field-name={broadcasts}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large slds-border_bottom">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>First 20 people opt in:</strong> 20 or more individual people text in for the first time</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large slds-border_bottom">
+                    <lightning-card>
+                        <lightning-output-field field-name={optIns}></lightning-output-field>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                    <div class="slds-text-heading_large">Product Adoption</div>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Last Login Score:</strong> Login to Gloo App:
+                            app.gloo.us/*</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={platformLogins}></lightning-output-field>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Team Members Score:</strong> Account has multiple team members have accepted their invites and
+                            joined the organization</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={teamMembers}></lightning-output-field>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Message Volume Score:</strong> Number of message credits used for outgoing communication in a
+                            month</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={messageVolume}></lightning-output-field>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Engagement Received Score:</strong> Number of message credits used for incoming communication in
+                            a month</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={engagementReceived}></lightning-output-field>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Feature Adoption Score:</strong> How many unique features have been used in the last 60 days: Feature
+                            options:  Prayer, Explorers, Messages, Broadcasts, Stories, Series, Keywords, Surveys</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={featureAdoption}></lightning-output-field>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Explorer Settings Score:</strong> Updated Explorer Settings to choose: Paused or Open status, National
+                            or Spanish</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={explorerSettings}></lightning-output-field>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large slds-border_bottom">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Connection Volume Score:</strong> Number of Connections an account is matched with in a month</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large slds-border_bottom">
+                    <lightning-output-field field-name={connectionVolume}></lightning-output-field>
+                </div>
+            </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                     <div class="slds-text-heading_large">Payment Status</div>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large slds-border_bottom">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Payments Status Score:</strong> Organization has a CC on file and their CC is up to date</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large slds-border_bottom">
+                     <lightning-output-field field-name={paymentStatus}></lightning-output-field>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                     <div class="slds-text-heading_large">Champion Retention</div>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Subscription Status Score:</strong> Organization has an active subscription based on first
+                             subscription created</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                     <lightning-output-field field-name={subscriptionStatus}></lightning-output-field>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large slds-border_bottom">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Renewal Status Score:</strong> Organization time until renewal</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large slds-border_bottom">
+                     <lightning-output-field field-name={renewalStatus}></lightning-output-field>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                     <div class="slds-text-heading_large">Champion Support</div>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Support CSAT Score:</strong> Support case CSAT scores from champions</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                     <lightning-output-field field-name={supportCSAT}></lightning-output-field>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large slds-border_bottom">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Support Case Score:</strong> The number and age of support cases an organization has with Gloo
+                             Support</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large slds-border_bottom">
+                     <lightning-output-field field-name={supportCases}></lightning-output-field>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_3-of-3 slds-p-horizontal_large">
+                     <div class="slds-text-heading_large">Champion Feedback</div>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Org NPS Score:</strong> Average score of NPS feedback form Champion</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                     <lightning-output-field field-name={orgNPS}></lightning-output-field>
+                 </div>
+             </div>
+             <div class="slds-grid slds-gutters">
+                 <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                     <lightning-card>
+                         <p class="slds-text-body_regular"><strong>Org CES Score:</strong> Average score of CES (customer effort score) feedback from
+                             Champions</p>
+                     </lightning-card>
+                 </div>
+                 <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                     <lightning-output-field field-name={orgCES}></lightning-output-field>
+                 </div>
+             </div>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3 slds-p-horizontal_large">
+                    <lightning-card>
+                        <p class="slds-text-body_regular"><strong>Org Referral Score:</strong> A customer's referral code is used in the onboarding flow of
+                            another account</p>
+                    </lightning-card>
+                </div>
+                <div class="slds-col slds-size_1-of-3 slds-p-horizontal_large">
+                    <lightning-output-field field-name={orgReferral}></lightning-output-field>
+                </div>
+            </div>
+         </lightning-record-view-form>
+     </lightning-layout>
+ </template>

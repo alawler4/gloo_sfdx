@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Org Health Scores">
+        <lightning-record-view-form object-api-name={objectApiName} record-id={recordId} flexibility="auto">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-m-left_medium slds-border_right">
+                <div class="slds-text-heading_medium">
+                    Champion Sentiment
+                </div>
+                <lightning-output-field field-name={sentimentScore} variant="label-hidden"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-border_right">
+                    <div class="slds-text-heading_medium">
+                        Product Onboarding
+                    </div>
+                    <lightning-output-field field-name={productOnboardingScore} variant="label-hidden"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-border_right">
+                    <div class="slds-text-heading_medium">
+                        Product Adoption
+                    </div>
+                    <lightning-output-field field-name={productAdoptionScore} variant="label-hidden"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-border_right">
+                    <div class="slds-text-heading_medium">
+                        Payment Status
+                    </div>
+                    <lightning-output-field field-name={paymentStatusScore} variant="label-hidden"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-border_right">
+                    <div class="slds-text-heading_medium">
+                        Champion Retention
+                    </div>
+                    <lightning-output-field field-name={retentionScore} variant="label-hidden"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-border_right">
+                    <div class="slds-text-heading_medium">
+                        Champion Support
+                    </div>
+                    <lightning-output-field field-name={supportScore} variant="label-hidden"></lightning-output-field>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-text-heading_medium">
+                        Champion Feedback
+                    </div>
+                    <lightning-output-field field-name={feedbackScore} variant="label-hidden"></lightning-output-field>
+                </div>
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>
